@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:eduai_frontend/core/constants/gradient.dart';
 import 'package:flutter/material.dart';
 import '../dashboard/dashboard_view.dart';
 
@@ -15,20 +16,42 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DashboardView()));
+    Timer(const Duration(seconds: 4), () {
+      Navigator.pushReplacementNamed(context, '/dashboard');
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-            Text('EduAI')
-        ],
-      ),
+    return Scaffold(
+        body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: gradient2
+
+          ),
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+              Icon(Icons.school_outlined, size: 150, color: Colors.white,),
+              SizedBox(height: 16,),
+              Text(
+                'EduAI',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+                ),
+              ),
+              Text(
+                'Your AI Study Partner',
+                style: TextStyle(
+                  color: Colors.white
+                ),
+              )
+          ],
+                ),
+        ),
     );
   }
 }

@@ -1,3 +1,6 @@
+import 'package:eduai_frontend/features/dashboard/dashboard_view.dart';
+import 'package:eduai_frontend/features/ingest/ingest_view.dart';
+import 'package:eduai_frontend/features/notes/notes_view.dart';
 import 'package:eduai_frontend/features/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +17,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.purpleAccent),
+        scaffoldBackgroundColor: Colors.teal[100], // 🌤️ global background
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6F7CFF),
+          brightness: Brightness.light,
+        ),
       ),
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context)=>SplashScreen(),
+        '/dashboard':(context)=>DashboardView(),
+        '/uploadPDF':(context)=>IngestView(),
+        '/generateNotes':(context)=>NotesView()
+      },
     );
   }
 }
