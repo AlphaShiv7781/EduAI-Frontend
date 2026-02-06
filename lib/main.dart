@@ -1,3 +1,4 @@
+import 'package:eduai_frontend/features/chat/chat_view.dart';
 import 'package:eduai_frontend/features/dashboard/dashboard_view.dart';
 import 'package:eduai_frontend/features/ingest/ingest_view.dart';
 import 'package:eduai_frontend/features/notes/notes_view.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         '/': (context)=>SplashScreen(),
         '/dashboard':(context)=>DashboardView(),
         '/uploadPDF':(context)=>IngestView(),
-        '/generateNotes':(context)=>NotesView()
+        '/generateNotes':(context)=>NotesView(),
+        '/chat': (context)=> ChatView()
       },
     );
   }
